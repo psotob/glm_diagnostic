@@ -48,7 +48,7 @@ program define glm_diagnostic
 	else if "`e(cmd)'" == "logit" | "`e(cmd)'" == "logistic" | /// 
 		("`e(cmd)'" == "glm" & ("`e(varfunct)'" == "Bernoulli" | /// 
 		"`e(varfunct)'" == "Binomial"))  {
-		qresid double qres, standardized diag_glm nqres(int 4)
+		qresid double qres, standardized diag_glm nqres(4)
 		local labelY: variable label qres_std1
 		local work: variable label workresp
 		local cook: variable label cooksd
