@@ -74,7 +74,7 @@ program define glm_diagnostic
 				lowess qres_std1 `var', legend(off) nodraw name(`grafo', replace)
 			local gname "`gname' `grafo'"
 			}
-			graph combine "`gname'", saving("Linearity_Asses.gph", replace)
+			graph combine `gname', saving("Linearity_Asses.gph", replace)
 		}
 		
 		if "`influ'" == "influ" {
