@@ -1,0 +1,9 @@
+v 0.0.1
+d 'GLM_DIAGNOSTIC': GLM diagnostic
+d 
+d Create plots of GLM's residuals for assesment of assumptions. In development yet! Suggestions to percys1991@gmail.com
+d 
+d Distribution-Date:   20210806
+d License: MIT
+d 
+F glm_diagnostic.ado

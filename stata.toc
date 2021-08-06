@@ -1,0 +1,7 @@
+v 0.0.1
+d Materials by Percy Soto-Becerra
+d percys1991@gmail.com
+
+d 'glm_diagnostic': Create plots of GLM's residuals for assesment of assumptions. In development yet! Suggestions to percys1991@gmail.com
+
+p glm_diagnostic
