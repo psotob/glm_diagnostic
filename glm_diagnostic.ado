@@ -70,8 +70,8 @@ program define glm_diagnostic
 		    foreach var of varlist `varlist' {
 		    	local i = `i' + 1
 		    	twoway scatter qres_std1 `var', ytitle(`labelY') yline(0) || /// 
-				lowess qres_std1 `var', legend(off) nodraw name(ling`i', replace)
-			local gname "`gname' ling`i'"
+				lowess qres_std1 `var', legend(off) nodraw name("ling`i'", replace)
+			local gname "`gname' "ling`i'""
 			}
 			graph combine "`gname'", saving("Linearity_Asses.gph", replace)
 		}
