@@ -2,6 +2,7 @@
 program define glm_diagnostic
 	version 17.0
 	syntax varlist [if] [in] [, linearity influence]
+	capture drop qres qres_std mu_scaled xb workresp cooksd dev_student hat_lever idvar
 	/*Quantile residual for normal linear regression (by Ordinary Least Square 
 	or Maximum Likelihood estimation*/
 	if "`e(cmd)'" == "regress" | ("`e(cmd)'" == "glm" & "`e(varfunct)'" == "Gaussian") {
