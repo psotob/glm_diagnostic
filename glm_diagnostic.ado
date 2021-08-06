@@ -27,12 +27,12 @@ program define glm_diagnostic
 		    local i = 0
 		    local gname ""
 		    foreach var of varlist `varlist' {
+		    	local i = `i' + 1
 		    	twoway scatter qres_std `var', ytitle(`labelY') yline(0) || /// 
 				lowess qres_std `var', legend(off) nodraw name(ling`i', replace)
-			local i = `i' + 1
-			local gname "`gname'" "ling`i'.gph"
+			local gname "`gname' ling`i'.gph"
 			}
-		graph combine "`gname'", saving("Linearity_Asses.gph", replace)
+			graph combine "`gname'", saving("Linearity_Asses.gph", replace)
 		}
 		
 		if "`influ'" == "influ" {
@@ -68,10 +68,10 @@ program define glm_diagnostic
 		    local i = 0
 		    local gname ""
 		    foreach var of varlist `varlist' {
-		    	twoway scatter `qres_std1' `var', ytitle(`labelY') yline(0) || /// 
-			lowess `qres_std1' `var', legend(off) nodraw name(ling`i', replace)
-			local i = `i' + 1
-			local gname "`gname'" "ling`i'.gph"
+		    	local i = `i' + 1
+		    	twoway scatter qres_std1 `var', ytitle(`labelY') yline(0) || /// 
+				lowess qres_std1 `var', legend(off) nodraw name(ling`i', replace)
+			local gname "`gname' ling`i'.gph"
 			}
 			graph combine "`gname'", saving("Linearity_Asses.gph", replace)
 		}
