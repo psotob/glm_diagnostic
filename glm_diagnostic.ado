@@ -29,8 +29,8 @@ program define glm_diagnostic
 		    foreach var of varlist `varlist' {
 		    	local i = `i' + 1
 			local grafo "ling`i'.gph"
-		    	twoway scatter qres_std1 `var', ytitle(`labelY') yline(0) || /// 
-				lowess qres_std1 `var', legend(off) nodraw saving(`grafo', replace)
+		    	twoway scatter qres_std `var', ytitle(`labelY') yline(0) || /// 
+				lowess qres_std `var', legend(off) nodraw saving(`grafo', replace)
 			local gname "`gname' `grafo'"
 			}
 			graph combine `gname', saving("Linearity_Asses.gph", replace)
