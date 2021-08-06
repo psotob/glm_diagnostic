@@ -1,12 +1,12 @@
 *! version 0.0.1 Percy Soto-Becerra 06Aug2021
 program define glm_diagnostic
 	version 17.0
-	syntax varlist(default = none) [if] [in] [, linearity influence]
+	syntax varlist [if] [in] [, linearity influence]
 	/*Quantile residual for normal linear regression (by Ordinary Least Square 
 	or Maximum Likelihood estimation*/
 	tempvar qres_std idvar
 	if "`e(cmd)'" == "regress" | ("`e(cmd)'" == "glm" & "`e(varfunct)'" == "Gaussian") {
-		qresid2 double `qres_std', standardized diag_glm 
+		qresid double `qres_std', standardized diag_glm 
 		local labelY: variable label `qres_std'
 		local work: variable label workresp
 		local cook: variable label cooksd
@@ -46,7 +46,7 @@ program define glm_diagnostic
 	else if "`e(cmd)'" == "logit" | "`e(cmd)'" == "logistic" | /// 
 		("`e(cmd)'" == "glm" & ("`e(varfunct)'" == "Bernoulli" | /// 
 		"`e(varfunct)'" == "Binomial"))  {
-		qresid2 double `qres', standardized diag_glm nqres(int 4)
+		qresid double `qres', standardized diag_glm nqres(int 4)
 		local labelY: variable label `qres_std1'
 		local work: variable label workresp
 		local cook: variable label cooksd
@@ -85,15 +85,15 @@ program define glm_diagnostic
 	/*Quantile residual for Poisson regression 
 	(GLM, family = Poisson, link = any admissible)*/
 	else if "`e(cmd)'" == "poisson" {
-		qresid2 double `qres', standardized diag_glm nqres(int 4)
+		qresid double `qres', standardized diag_glm nqres(int 4)
 	}
 	else if "`e(cmd)'" == "glm" & "`e(varfunct)'" == "Poisson" {
-		qresid2 double `qres', standardized diag_glm nqres(int 4)
+		qresid double `qres', standardized diag_glm nqres(int 4)
 	}
 	/*Quantile residual for Negative Binomial Regression 
 	(GLM, family = nbinomial, link = any admissible)*/
 	else if "`e(cmd)'" == "glm" & "`e(varfunct)'" == "Neg. Binomial" {
-		qresid2 double `qres', standardized diag_glm nqres(int 4)
+		qresid double `qres', standardized diag_glm nqres(int 4)
 	}
 	else if "`e(cmd)'" == "nbreg" {
 
