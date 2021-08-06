@@ -71,7 +71,7 @@ program define glm_diagnostic
 		    	local i = `i' + 1
 			local grafo "ling`i'.gph"
 		    	twoway scatter qres_std1 `var', ytitle(`labelY') yline(0) || /// 
-				lowess qres_std1 `var', legend(off) nodraw name(`grafo', replace)
+				lowess qres_std1 `var', legend(off) nodraw saving(`grafo', replace)
 			local gname "`gname' `grafo'"
 			}
 			graph combine `gname', saving("Linearity_Asses.gph", replace)
