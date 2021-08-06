@@ -1,6 +1,6 @@
 *! version 0.0.1 Percy Soto-Becerra 06Aug2021
 program define glm_diagnostic
-	version 17.0
+	version 15.0
 	syntax varlist [if] [in] [, linearity influ]
 	/*Quantile residual for normal linear regression (by Ordinary Least Square 
 	or Maximum Likelihood estimation*/
